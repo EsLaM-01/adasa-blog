@@ -1,6 +1,7 @@
 // import React from "react";
 import { FaNewspaper, FaUsers, FaFolderOpen, FaPenNib } from "react-icons/fa";
 import { FiArrowLeft, FiInfo } from "react-icons/fi";
+import { NavLink } from "react-router-dom";
 export default function Hero() {
   const stats = [
     {
@@ -32,10 +33,8 @@ export default function Hero() {
   return (
     <>
       <section className="relative flex min-h-[90vh] items-center overflow-hidden bg-[#0a0a0a]">
-        {/* Grid Background */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(38,38,38,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(38,38,38,0.5)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
-        {/* Decorative Blobs */}
         <div className="blob absolute left-10 top-20 h-72 w-72 rounded-full bg-orange-500/10 blur-3xl" />
 
         <div
@@ -45,10 +44,8 @@ export default function Hero() {
 
         <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/5 blur-3xl" />
 
-        {/* Content */}
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            {/* Label */}
             <div className="section-label mb-8 inline-flex items-center gap-2 animate-fade-in">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-500 opacity-75" />
@@ -61,23 +58,19 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Heading */}
             <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight text-white md:text-6xl lg:text-7xl">
               اكتشف <span className="gradient-text">فن</span>
               <br />
               التصوير الفوتوغرافي
             </h1>
 
-            {/* Description */}
             <p className="mx-auto mb-10 max-w-2xl text-xl leading-relaxed text-neutral-400 md:text-2xl">
               انغمس في أسرار المحترفين ونصائح عملية لتطوير مهاراتك في التصوير.
             </p>
 
-            {/* Buttons */}
             <div className="mb-16 flex flex-col justify-center gap-4 sm:flex-row">
-              {/* Blog Button */}
-              <a
-                href="/blog"
+              <NavLink
+                to="/blogs"
                 className="btn-primary group inline-flex items-center justify-center gap-2"
               >
                 <span>استكشف المقالات</span>
@@ -86,20 +79,18 @@ export default function Hero() {
                   className="h-5 w-5 rotate-180 transition-transform group-hover:-translate-x-1"
                   aria-hidden="true"
                 />
-              </a>
+              </NavLink>
 
-              {/* About Button */}
-              <a
-                href="/about"
+              <NavLink
+                to="/about"
                 className="btn-secondary inline-flex items-center justify-center gap-2"
               >
                 <FiInfo className="h-5 w-5" aria-hidden="true" />
 
                 <span>اعرف المزيد</span>
-              </a>
+              </NavLink>
             </div>
 
-            {/* Statistics */}
             <div className="mx-auto grid max-w-3xl grid-cols-2 gap-4 md:grid-cols-4">
               {stats.map(({ icon: Icon, value, label, delay }) => (
                 <div

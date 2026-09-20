@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <script>
+        const path = window.location.pathname;
+        const repo = "/adasa-blog";
+
+        if (path.startsWith(repo)) {
+            const route = path.slice(repo.length);
+
+            sessionStorage.setItem(
+                "redirect",
+                route + window.location.search + window.location.hash
+            );
+        }
+
+        window.location.replace(repo + "/");
+    </script>
+</head>
+
+<body></body>
+
+</html>

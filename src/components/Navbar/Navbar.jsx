@@ -1,4 +1,4 @@
-// import React from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaMagnifyingGlass, FaBars } from "react-icons/fa6";
 import logo from "../../assets/logo.png";
@@ -9,6 +9,7 @@ const navLinkClasses = ({ isActive }) =>
       : "text-neutral-400 hover:text-white"
   }`;
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-[#262626]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,6 +60,7 @@ export default function Navbar() {
           </div>
 
           <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-3 text-neutral-400 hover:text-white hover:bg-[#161616] rounded-xl transition-all duration-300 border border-transparent hover:border-[#262626]"
             aria-label="Menu"
           >
@@ -66,7 +68,11 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="md:hidden overflow-hidden transition-all duration-300 max-h-0">
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ${
+            isMenuOpen ? "max-h-96" : "max-h-0"
+          }`}
+        >
           <div className="bg-[#161616] backdrop-blur-xl rounded-2xl p-4 border border-[#262626]">
             <div className="flex flex-col space-y-1">
               <NavLink
